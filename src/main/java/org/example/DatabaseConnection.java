@@ -10,9 +10,9 @@ public class DatabaseConnection {
     private static Connection connection = null;
     static {
         try {
-            System.out.println("Available Environment Variables:");
-            Map<String, String> env = System.getenv();
-            env.forEach((key, value) -> System.out.println(key + " = " + value));
+            //System.out.println("Available Environment Variables:");
+            //Map<String, String> env = System.getenv();
+            //env.forEach((key, value) -> System.out.println(key + " = " + value));
             // Load properties from file
 //            Properties properties = new Properties();
 //            FileInputStream fis = new FileInputStream("src/main/resources/db.properties");
@@ -22,6 +22,7 @@ public class DatabaseConnection {
 //            String username = properties.getProperty("db.username");
 //            String password = properties.getProperty("db.password");
             String url = System.getenv("DB_URL");
+            System.out.println("URL::::"+url);
             String username = System.getenv("DB_USER");
             String password = System.getenv("DB_PASSWORD");
             // Establish the connection
