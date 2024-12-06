@@ -10,17 +10,20 @@ public class DatabaseConnection {
     static {
         try {
             // Load properties from file
-            Properties properties = new Properties();
-            FileInputStream fis = new FileInputStream("src/main/resources/db.properties");
-            properties.load(fis);
+//            Properties properties = new Properties();
+//            FileInputStream fis = new FileInputStream("src/main/resources/db.properties");
+//            properties.load(fis);
             // Get database properties
-            String url = properties.getProperty("db.url");
-            String username = properties.getProperty("db.username");
-            String password = properties.getProperty("db.password");
+//            String url = properties.getProperty("db.url");
+//            String username = properties.getProperty("db.username");
+//            String password = properties.getProperty("db.password");
+            String url = System.getenv("DB_URL");
+            String username = System.getenv("DB_USER");
+            String password = System.getenv("DB_PASSWORD");
             // Establish the connection
             connection = DriverManager.getConnection(url, username, password);
             System.out.println("Database connected successfully.");
-        } catch (IOException | SQLException e) {
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
