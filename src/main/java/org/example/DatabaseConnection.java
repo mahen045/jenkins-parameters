@@ -4,11 +4,15 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.Map;
 import java.util.Properties;
 public class DatabaseConnection {
     private static Connection connection = null;
     static {
         try {
+            System.out.println("Available Environment Variables:");
+            Map<String, String> env = System.getenv();
+            env.forEach((key, value) -> System.out.println(key + " = " + value));
             // Load properties from file
 //            Properties properties = new Properties();
 //            FileInputStream fis = new FileInputStream("src/main/resources/db.properties");
